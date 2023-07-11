@@ -15,12 +15,11 @@ interface IRealEstateInvestmentResults {
 
 export default function calculateRealEstateInvestment(
   price: number,
-  downPaymentPercent: number,
+  downPayment: number,
   interestRate: number,
   monthlyRent: number,
   hoaDues: number,
 ) {
-  const downPayment = (downPaymentPercent / 100) * price;
   const loanAmount = price - downPayment;
   const monthlyInterestRate = (interestRate / 100) / 12;
   const loanTermMonths = 30 * 12; // 30 years
@@ -77,6 +76,14 @@ export default function calculateRealEstateInvestment(
     totalReturn,
   };
 }
+
+export const millify = (num: number) => {
+  if (num >= 1000000) {
+    return '$' + (num / 1000000).toFixed(1) + 'M';
+  } else {
+    return '$' + num.toLocaleString();
+  }
+};
 
 
 
