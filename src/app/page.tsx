@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getCookies } from 'cookies-next';
 
-import NavBar from '../components/NavBar.jsx';
 import Map from '../components/Map.jsx';
 import AutoCompleteLoader from '../components/AutoCompleteLoader.jsx';
 import HousingCards from '../components/HousingCards.jsx';
@@ -27,6 +26,7 @@ const HomePage = ({ params }) => {
   const [downPayment, setDownPayment] = useState(20000);
   const [interestRate, setInterestRate] = useState(5.0);
   const [favorited, setFavorited] = useState([]);
+  const [addCost, setAddCost] = useState(0);
 
   const checkCookies = async () => {
     try {
@@ -68,6 +68,7 @@ const HomePage = ({ params }) => {
     <>
       <div className=''>
         <AutoCompleteLoader
+          addCost={addCost} setAddCost={setAddCost}
           setSearch={setSearch}
           setAdress={setAddress}
           setHousingData={setHousingData}
@@ -80,6 +81,7 @@ const HomePage = ({ params }) => {
       <Map search={search} housingData={housingData} />
       <div className='absolute bottom-0 w-screen overflow-x-scroll'>
         <HousingCards
+          addCost={addCost}
           favorited={favorited}
           setFavorited={setFavorited}
           housingData={housingData}
@@ -97,7 +99,6 @@ const HomePage = ({ params }) => {
 
   return (
     <div>
-      <NavBar />
       {renderContent}
     </div>
   );

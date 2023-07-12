@@ -4,6 +4,7 @@ import React from 'react';
 import { Combobox } from '@headlessui/react';
 import DownPaymentInput from './DownPaymentInput';
 import IntrestInput from './InterestInput';
+import AdditionalCostsBtn from './AdditionalCostsBtn'
 
 import axios from 'axios';
 
@@ -12,6 +13,7 @@ const SearchBar = ({
   setAdress,
   setHousingData,
   setDownPayment,
+  addCost, setAddCost,
   downPayment,
   interestRate,
   setInterestRate,
@@ -99,6 +101,7 @@ const SearchBar = ({
                 })}
             </Combobox.Options>
           </Combobox>
+          <div className='flex gap-4 mt-2 '>
           <DownPaymentInput
             setDownPayment={setDownPayment}
             downPayment={downPayment}
@@ -107,6 +110,7 @@ const SearchBar = ({
             interestRate={interestRate}
             setInterestRate={setInterestRate}
           />
+          <AdditionalCostsBtn addCost={addCost} setAddCost={setAddCost}/></div>
         </div>
       </div>
     </div>

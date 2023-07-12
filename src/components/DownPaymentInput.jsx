@@ -30,8 +30,8 @@ const DownPaymentInput = ({ setDownPayment, downPayment }) => {
       <Tooltip>
         <TooltipTrigger>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button className='w-24'>{downPayment}</Button>
+            <DropdownMenuTrigger asChild className=''>
+              <Button className='w-24 '>${downPayment.toLocaleString()}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>Down Payment</DropdownMenuLabel>
@@ -43,17 +43,17 @@ const DownPaymentInput = ({ setDownPayment, downPayment }) => {
                 className='p-4 '
               />
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => setDownPayment(20000)}>
-                $20,000
+              <DropdownMenuItem onClick={() => setDownPayment(downPayment - 20000)}>
+                ${(downPayment - 20000).toLocaleString()}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDownPayment(30000)}>
-                $30,000
+              <DropdownMenuItem onClick={() => setDownPayment(downPayment + 30000)}>
+                ${(downPayment + 30000).toLocaleString()}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDownPayment(40000)}>
-                $40,000
+              <DropdownMenuItem onClick={() => setDownPayment(downPayment + 40000)}>
+                ${(downPayment + 40000).toLocaleString()}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDownPayment(50000)}>
-                $50,000
+              <DropdownMenuItem onClick={() => setDownPayment(downPayment + 50000)}>
+                ${(downPayment + 50000).toLocaleString()}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

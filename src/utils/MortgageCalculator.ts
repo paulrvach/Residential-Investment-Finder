@@ -31,7 +31,7 @@ export default function calculateRealEstateInvestment(
   const grossScheduledIncome = monthlyRent * 12;
   
   // Gross Operating Income (GOI) is GSI minus HOA dues
-  const grossOperatingIncome = grossScheduledIncome - (hoaDues * 12);
+  const grossOperatingIncome = grossScheduledIncome - hoaDues;
 
   // Depreciation is calculated over 27.5 years as per IRS guidelines
   const annualDepreciation = price / 27.5;
@@ -49,7 +49,7 @@ export default function calculateRealEstateInvestment(
   const actualProfitEarned = annualNetOperatingIncome - tax;
 
   // Monthly Cash Flow
-  const monthlyCashFlow = (grossOperatingIncome / 12) - monthlyLoanPayment - (hoaDues + tax / 12);
+  const monthlyCashFlow = (grossOperatingIncome / 12) - monthlyLoanPayment -  (tax / 12);
 
   // Capitalization Rate
   const capitalizationRate = annualNetOperatingIncome / price;

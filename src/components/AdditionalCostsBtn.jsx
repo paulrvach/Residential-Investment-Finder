@@ -18,42 +18,42 @@ import {
 
 import { Input } from '@/components/ui/input';
 import { Button } from './ui/button';
-const AdditionalCostsBtn = () => {
+const AdditionalCostsBtn = ({addCost, setAddCost}) => {
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button className='w-24'>{downPayment}</Button>
+              <Button className='w-24'>${addCost.toLocaleString()}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel>Additional Costs</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <Input
                 type='number'
-                placeholder={downPayment.toLocaleString()}
-                onChange={(e) => setDownPayment(e.target.value)}
+                placeholder={addCost.toLocaleString()}
+                onChange={(e) => setAddCost(e.target.value)}
                 className='p-4 '
               />
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => setDownPayment(20000)}>
-                $20,000
+              <DropdownMenuItem onClick={() => setAddCost(0)}>
+                $0
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDownPayment(30000)}>
+              <DropdownMenuItem onClick={() => setAddCost(30000)}>
                 $30,000
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDownPayment(40000)}>
-                $40,000
+              <DropdownMenuItem onClick={() => setAddCost(60000)}>
+                $60,000
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setDownPayment(50000)}>
-                $50,000
+              <DropdownMenuItem onClick={() => setAddCost(90000)}>
+                $90,000
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </TooltipTrigger>
         <TooltipContent>
-          <div>AdditionalCostsBtn</div>
+          <div>Additional Costs</div>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

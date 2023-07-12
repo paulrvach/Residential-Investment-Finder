@@ -25,6 +25,7 @@ function AutoCompleteLoader(props) {
   return (
     <>
       <SearchBar
+        addCost={props.addCost} setAddCost={props.setAddCost}
         ready={ready}
         getGeocode={getGeocode}
         getLatLng={getLatLng}

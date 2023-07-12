@@ -1,12 +1,30 @@
-'use client'
-import { useState, useEffect } from 'react';
-import calculateRealEstateInvestment, {millify} from '../utils/MortgageCalculator';
+'use client';
+import Image from 'next/image';
+import calculateRealEstateInvestment, {
+  millify,
+} from '../utils/MortgageCalculator';
 
-const HousingCard = ({ card, downPayment, interestRate, favHandler, setPropertyData, setIsModalOpen, isModalOpen, favs }) => {
+const HousingCard = ({
+  card,
+  downPayment,
+  interestRate,
+  favHandler,
+  setPropertyData,
+  setIsModalOpen,
+  isModalOpen,
+  favs,
+  addCost,
+}) => {
   const price = millify(card.price);
   const sqft = card.livingArea;
   const rentEst = millify(Number.parseInt(card.rentZestimate));
-  const cashFlow = calculateRealEstateInvestment( card.price, downPayment, interestRate, card.rentZestimate, 0);
+  const cashFlow = calculateRealEstateInvestment(
+    card.price,
+    downPayment,
+    interestRate,
+    card.rentZestimate,
+    addCost
+  );
   const cashFlowString = millify(cashFlow.monthlyCashFlow.toFixed());
   const capRate = cashFlow.capitalizationRate * 100;
   const isFaved = favs.has(card.address) ? true : false;
@@ -35,9 +53,11 @@ const HousingCard = ({ card, downPayment, interestRate, favHandler, setPropertyD
             add_circle
           </span>
         )}
-        <img
+        <Image
           src={card.imgSrc}
-          className='w-[337px] h-[120px]  object-cover rounded-t-md'
+          width={337} height={120}
+          alt='propert image'
+          className=' object-cover rounded-t-md'
         />
         <div className='px-2 w-[337px] mb-2'>
           <p className='text-xl'>{price}</p>
