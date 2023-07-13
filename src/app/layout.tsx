@@ -19,21 +19,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
   return (
     <html lang='en'>
-      <Head>
-        <Link
-          // display='optional'
-          as=''
-          href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0'
-        />
-        <Link  as="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-      </Head>
       <body className={inter.className}>
-      <NavBar />
-        
-        {children}</body>
+        <NavBar />
+
+        {children}
+      </body>
     </html>
   );
 }

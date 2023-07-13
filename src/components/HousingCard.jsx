@@ -55,9 +55,9 @@ const HousingCard = ({
         )}
         <Image
           src={card.imgSrc}
-          width={337} height={120}
+          width={337} height={100}
           alt='propert image'
-          className=' object-cover rounded-t-md'
+          className=' object-cover rounded-t-md h-[127px]'
         />
         <div className='px-2 w-[337px] mb-2'>
           <p className='text-xl'>{price}</p>
